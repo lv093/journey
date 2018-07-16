@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Chain.md | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ethereum源码分析 — P2P 以太坊的网络通信基于peer-to-peer(p2p)通信协议，又根据自身传输数据类型(区块，交易，哈希值等)，网络节点业务相关性等需求，在各方面做了特别设计。  1.一般意义上的p2p网络（p2p介绍）1.1 分类 根据中央化程度 纯p2p：没有中心服务器和中心路由器 杂p2p：中心服务器保存节点信息 混合p2p   根据==网络拓扑结构== 结构p2p：">
+<meta name="keywords" content="Blockchain,Ethereum,源码分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chain.md">
+<meta property="og:url" content="http://yoursite.com/2018/07/16/Chain-md/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Ethereum源码分析 — P2P 以太坊的网络通信基于peer-to-peer(p2p)通信协议，又根据自身传输数据类型(区块，交易，哈希值等)，网络节点业务相关性等需求，在各方面做了特别设计。  1.一般意义上的p2p网络（p2p介绍）1.1 分类 根据中央化程度 纯p2p：没有中心服务器和中心路由器 杂p2p：中心服务器保存节点信息 混合p2p   根据==网络拓扑结构== 结构p2p：">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-16T06:49:53.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chain.md">
+<meta name="twitter:description" content="Ethereum源码分析 — P2P 以太坊的网络通信基于peer-to-peer(p2p)通信协议，又根据自身传输数据类型(区块，交易，哈希值等)，网络节点业务相关性等需求，在各方面做了特别设计。  1.一般意义上的p2p网络（p2p介绍）1.1 分类 根据中央化程度 纯p2p：没有中心服务器和中心路由器 杂p2p：中心服务器保存节点信息 混合p2p   根据==网络拓扑结构== 结构p2p：">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Chain-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/16/Chain-md/" class="article-date">
+  <time datetime="2018-07-16T06:46:17.000Z" itemprop="datePublished">2018-07-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Blockchain/">Blockchain</a>►<a class="article-category-link" href="/categories/Blockchain/Ethereum/">Ethereum</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Chain.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Ethereum源码分析-—-P2P"><a href="#Ethereum源码分析-—-P2P" class="headerlink" title="Ethereum源码分析 — P2P"></a>Ethereum源码分析 — P2P</h3><blockquote>
+<p>以太坊的网络通信基于peer-to-peer(p2p)通信协议，又根据自身传输数据类型(区块，交易，哈希值等)，网络节点业务相关性等需求，在各方面做了特别设计。</p>
+</blockquote>
+<h4 id="1-一般意义上的p2p网络（p2p介绍）"><a href="#1-一般意义上的p2p网络（p2p介绍）" class="headerlink" title="1.一般意义上的p2p网络（p2p介绍）"></a>1.一般意义上的p2p网络（p2p介绍）</h4><h5 id="1-1-分类"><a href="#1-1-分类" class="headerlink" title="1.1 分类"></a>1.1 分类</h5><ul>
+<li>根据中央化程度<ul>
+<li>纯p2p：没有中心服务器和中心路由器</li>
+<li>杂p2p：中心服务器保存节点信息</li>
+<li>混合p2p</li>
+</ul>
+</li>
+<li>根据==网络拓扑结构==<ul>
+<li>结构p2p：<blockquote>
+<p>提高查询效率的基本手段是对数据建立索引，结构化p2p网络最普遍的实现方案中使用了分布式哈希表(Distributed Hash Table，DHT)，它会对每项数据(value)分配一个key以组成(key,value)键值对，同时网络中每个个体的分布–这里的分布主要指相互通信关系-根据key键进行关联和扩展。这样，当要查找某项数据时，只要跟据其key键就能不断的缩小查找区域，大大减少资源消耗。</p>
+</blockquote>
+</li>
+<li>无结构p2p</li>
+<li>松散结构p2p</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>注：p2p网络中，并非每个个体与网络中其他同类均有通信，一个个体只需要与相邻的一部分同类有通信即可。</em></strong></p>
+<h5 id="1-2-对于ethereum通信机制的借鉴"><a href="#1-2-对于ethereum通信机制的借鉴" class="headerlink" title="1.2 对于ethereum通信机制的借鉴"></a>1.2 对于ethereum通信机制的借鉴</h5><ul>
+<li>ethereum网络特点<ul>
+<li>网络节点个体随时可能加入和离开，但大量同时加入离开的概率较小</li>
+<li><strong>每个个体存储的数据，理想状态下是相同的。</strong></li>
+</ul>
+</li>
+<li>以太坊的p2p网络涉及思路：<ul>
+<li>不需要结构化（改进：设计好一部分相邻个体列表）</li>
+<li>==个体间的相互同步更新需要仔细设计==<h4 id="2-p2p通信的管理模块eth-ProtocolManager"><a href="#2-p2p通信的管理模块eth-ProtocolManager" class="headerlink" title="2.p2p通信的管理模块eth.ProtocolManager"></a>2.p2p通信的管理模块eth.ProtocolManager</h4><blockquote>
+<p>eth.Ethereum的核心成员变量之一</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/16/Chain-md/" data-id="cjjnx3e790001sufy1vzicl9u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blockchain/">Blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码分析/">源码分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blockchain/">Blockchain</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blockchain/Ethereum/">Ethereum</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/">Blockchain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码分析/">源码分析</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Ethereum/" style="font-size: 10px;">Ethereum</a> <a href="/tags/源码分析/" style="font-size: 10px;">源码分析</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/16/Chain-md/">Chain.md</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
