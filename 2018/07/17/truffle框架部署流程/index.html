@@ -5,19 +5,22 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>truffle框架部署流程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="truffle框架1.安装trufflenpm install -g truffle 2.创建工程 truffle init  //创建一个空工程 truffle unbox metacoin    //创建包含metacoin的工程   3.编译和部署合约 修改truffle.js 要部署到链上，需要把IP，端口，网络id告诉truffle。    module.exports = {">
+<meta name="keywords" content="truffle,Ethereum">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/07/16/hello-world/index.html">
+<meta property="og:title" content="truffle框架部署流程">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/truffle框架部署流程/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="truffle框架1.安装trufflenpm install -g truffle 2.创建工程 truffle init  //创建一个空工程 truffle unbox metacoin    //创建包含metacoin的工程   3.编译和部署合约 修改truffle.js 要部署到链上，需要把IP，端口，网络id告诉truffle。    module.exports = {">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-16T06:38:14.912Z">
+<meta property="og:image" content="https://i.screenshot.net/grnd8ig">
+<meta property="og:updated_time" content="2018-07-17T02:40:38.179Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="truffle框架部署流程">
+<meta name="twitter:description" content="truffle框架1.安装trufflenpm install -g truffle 2.创建工程 truffle init  //创建一个空工程 truffle unbox metacoin    //创建包含metacoin的工程   3.编译和部署合约 修改truffle.js 要部署到链上，需要把IP，端口，网络id告诉truffle。    module.exports = {">
+<meta name="twitter:image" content="https://i.screenshot.net/grnd8ig">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-truffle框架部署流程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/16/hello-world/" class="article-date">
-  <time datetime="2018-07-16T06:38:14.912Z" itemprop="datePublished">2018-07-16</time>
+    <a href="/2018/07/17/truffle框架部署流程/" class="article-date">
+  <time datetime="2018-07-17T02:37:28.000Z" itemprop="datePublished">2018-07-17</time>
 </a>
     
   </div>
@@ -78,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      truffle框架部署流程
     </h1>
   
 
@@ -86,37 +89,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="truffle框架"><a href="#truffle框架" class="headerlink" title="truffle框架"></a>truffle框架</h3><h4 id="1-安装truffle"><a href="#1-安装truffle" class="headerlink" title="1.安装truffle"></a>1.安装truffle</h4><pre><code>npm install -g truffle
+</code></pre><h4 id="2-创建工程"><a href="#2-创建工程" class="headerlink" title="2.创建工程"></a>2.创建工程</h4><ul>
+<li>truffle init  //创建一个空工程</li>
+<li>truffle unbox metacoin    //创建包含metacoin的工程</li>
+</ul>
+<p><img src="https://i.screenshot.net/grnd8ig" alt="truffle工程结构图"></p>
+<h4 id="3-编译和部署合约"><a href="#3-编译和部署合约" class="headerlink" title="3.编译和部署合约"></a>3.编译和部署合约</h4><ul>
+<li>修改truffle.js<ul>
+<li>要部署到链上，需要把IP，端口，网络id告诉truffle。</li>
+</ul>
+</li>
+</ul>
+<pre><code>module.exports = {  
+    networks: {  
+        development: {  
+            host: &apos;localhost&apos;,  
+            port: &apos;7545&apos;,  
+            network_id: &apos;*&apos; // Match any network id  
+        }  
+    }  
+};
+</code></pre><ul>
+<li>编译和部署<ul>
+<li>truffle compile  </li>
+<li>truffle migrate</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/hello-world/" data-id="cjjp3entz0003kzfy5psrf3ou" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/17/truffle框架部署流程/" data-id="cjjp3entr0000kzfy7861on0c" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/truffle/">truffle</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/07/16/Chain-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Chain.md
-        
-      </div>
-    </a>
   
+    <a href="/2018/07/16/Chain-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Chain.md</div>
+    </a>
   
 </nav>
 

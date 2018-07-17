@@ -62,6 +62,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-truffle框架部署流程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/17/truffle框架部署流程/" class="article-date">
+  <time datetime="2018-07-17T02:37:28.000Z" itemprop="datePublished">2018-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/17/truffle框架部署流程/">truffle框架部署流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="truffle框架"><a href="#truffle框架" class="headerlink" title="truffle框架"></a>truffle框架</h3><h4 id="1-安装truffle"><a href="#1-安装truffle" class="headerlink" title="1.安装truffle"></a>1.安装truffle</h4><pre><code>npm install -g truffle
+</code></pre><h4 id="2-创建工程"><a href="#2-创建工程" class="headerlink" title="2.创建工程"></a>2.创建工程</h4><ul>
+<li>truffle init  //创建一个空工程</li>
+<li>truffle unbox metacoin    //创建包含metacoin的工程</li>
+</ul>
+<p><img src="https://i.screenshot.net/grnd8ig" alt="truffle工程结构图"></p>
+<h4 id="3-编译和部署合约"><a href="#3-编译和部署合约" class="headerlink" title="3.编译和部署合约"></a>3.编译和部署合约</h4><ul>
+<li>修改truffle.js<ul>
+<li>要部署到链上，需要把IP，端口，网络id告诉truffle。</li>
+</ul>
+</li>
+</ul>
+<pre><code>module.exports = {  
+    networks: {  
+        development: {  
+            host: &apos;localhost&apos;,  
+            port: &apos;7545&apos;,  
+            network_id: &apos;*&apos; // Match any network id  
+        }  
+    }  
+};
+</code></pre><ul>
+<li>编译和部署<ul>
+<li>truffle compile  </li>
+<li>truffle migrate</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/17/truffle框架部署流程/" data-id="cjjp3entr0000kzfy7861on0c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/truffle/">truffle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Chain-md" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/16/Chain-md/" class="article-date">
@@ -128,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/Chain-md/" data-id="cjjnx3e790001sufy1vzicl9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/Chain-md/" data-id="cjjp3entv0001kzfyph43vvco" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blockchain/">Blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/源码分析/">源码分析</a></li></ul>
@@ -175,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/16/hello-world/" data-id="cjjnx3e7d0002sufywftj4n8c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/16/hello-world/" data-id="cjjp3entz0003kzfy5psrf3ou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +271,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/">Blockchain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码分析/">源码分析</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blockchain/">Blockchain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethereum/">Ethereum</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/truffle/">truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/源码分析/">源码分析</a></li></ul>
     </div>
   </div>
 
@@ -215,7 +281,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Ethereum/" style="font-size: 10px;">Ethereum</a> <a href="/tags/源码分析/" style="font-size: 10px;">源码分析</a>
+      <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Ethereum/" style="font-size: 20px;">Ethereum</a> <a href="/tags/truffle/" style="font-size: 10px;">truffle</a> <a href="/tags/源码分析/" style="font-size: 10px;">源码分析</a>
     </div>
   </div>
 
@@ -235,6 +301,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/17/truffle框架部署流程/">truffle框架部署流程</a>
+          </li>
         
           <li>
             <a href="/2018/07/16/Chain-md/">Chain.md</a>
